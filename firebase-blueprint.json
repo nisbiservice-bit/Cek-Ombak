@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "Voter": {
+      "title": "Voter",
+      "description": "Data pencatatan pemilih lapangan",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "namaPemilih": { "type": "string" },
+        "rw": { "type": "string" },
+        "rt": { "type": "string" },
+        "dusun": { "type": "number" },
+        "kampung": { "type": "string" },
+        "pilihan": { "type": "string", "enum": ["CENGHAR", "LAWAN", "BELUM_MEMILIH", "TIDAK_MEMILIH"] },
+        "subPilihanLawan": { "type": "string" },
+        "subPilihanTidakMemilih": { "type": "string" },
+        "aspirasi": { "type": "string" },
+        "noRumah": { "type": "string" },
+        "kepalaKeluarga": { "type": "string" },
+        "inputByUserId": { "type": "string" },
+        "inputByUserName": { "type": "string" },
+        "inputByUserRole": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "notes": { "type": "array" }
+      },
+      "required": ["namaPemilih", "rw", "rt", "pilihan"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Akun anggota tim pemenangan",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "namaLengkap": { "type": "string" },
+        "role": { "type": "string", "enum": ["super_admin", "admin", "korlap", "kordes_rw", "petugas_rt"] },
+        "rwTugas": { "type": "string" },
+        "rtTugas": { "type": "string" },
+        "status": { "type": "string", "enum": ["aktif", "terblokir"] },
+        "deviceId": { "type": "string" },
+        "phone": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["username", "namaLengkap", "role"]
+    },
+    "AppState": {
+      "title": "AppState",
+      "description": "Status agregat aplikasi",
+      "type": "object",
+      "properties": {
+        "lastUpdated": { "type": "string" },
+        "zoneThresholds": { "type": "object" },
+        "regions": { "type": "array" }
+      }
+    }
+  },
+  "firestore": {
+    "/voters/{voterId}": {
+      "schema": "Voter",
+      "description": "Koleksi data pemilih terdata"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Koleksi pengguna tim lapangan"
+    },
+    "/state/{stateId}": {
+      "schema": "AppState",
+      "description": "Dokumen state aplikasi bersama"
+    }
+  }
+}

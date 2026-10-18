@@ -1,0 +1,8 @@
+{
+  "name": "Cek Ombak",
+  "description": "Aplikasi internal tim pemenangan calon Kepala Desa Langensari (Aceng Saepulloh) untuk pemetaan dukungan dan pencatatan lapangan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

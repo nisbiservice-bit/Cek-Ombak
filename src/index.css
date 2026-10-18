@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Anti-Copy Protection for Voter Data */
+.protected-data {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Font Scale Accessibility */
+html[data-fontsize="large"] {
+  font-size: 112%;
+}
+
+html[data-fontsize="xlarge"] {
+  font-size: 125%;
+}
